@@ -1,23 +1,23 @@
-'''
+"""
 Created on May 4, 2021
 
 @author: poojan.kothari
-'''
+"""
 import re
 import time
 
-from util import constants, setu_utils, alert_utils
+from vaccine_session_check.util import constants, setu_utils, alert_utils
 
 
 def get_pin_code():
     pin_code = ""
-    is_valid_pincode = False
-    while(not(is_valid_pincode)):
+    is_valid_pin_code = False
+    while not is_valid_pin_code:
         pin_code = str(
             input(
-                f"> Enter Pin Code, Press enter to select default: {constants.default_pincode}\n") or constants.default_pincode)
-        if(re.search(constants.pincode_regex, pin_code)):
-            is_valid_pincode = True
+                f"> Enter Pin Code, Press enter to select default: {constants.default_pin_code}\n") or constants.default_pin_code)
+        if re.search(constants.pin_code_regex, pin_code):
+            is_valid_pin_code = True
         else:
             print("Invalid Pin Code, Please Try again")
     return pin_code
@@ -26,10 +26,11 @@ def get_pin_code():
 def get_date():
     date = ""
     is_valid_date = False
-    while(not(is_valid_date)):
+    while not is_valid_date:
         date = str(
-            input(f"> Enter Date in format DD-MM-YYYY, press enter to select default:{constants.default_date}\n") or constants.default_date)
-        if(re.search(constants.date_regex, date)):
+            input(
+                f"> Enter Date in format DD-MM-YYYY, press enter to select default:{constants.default_date}\n") or constants.default_date)
+        if re.search(constants.date_regex, date):
             is_valid_date = True
         else:
             print("Invalid Date, Please Try again")
@@ -39,7 +40,8 @@ def get_date():
 def get_recurrence_factor():
     try:
         rec_factor = int(
-        input(f"> Enter Recurrence Frequency in seconds, press enter to select default: {constants.default_rec_fac} seconds \n") or constants.default_rec_fac)
+            input(
+                f"> Enter Recurrence Frequency in seconds, press enter to select default: {constants.default_rec_fac} seconds \n") or constants.default_rec_fac)
     except Exception:
         print("Exception while taking input. Considering default value")
         rec_factor = constants.default_rec_fac
@@ -53,7 +55,7 @@ def start_week_tracker(pin_code, date, rec_factor):
         2. Date => {date},
         3. Recurrence factor => {rec_factor}
     """)
-    while(True):
+    while True:
         delay = rec_factor
         alert_list = []
         response = None
@@ -80,7 +82,7 @@ def start_day_tracker(pin_code, date, rec_factor):
         2. Date => {date},
         3. Recurrence factor => {rec_factor}
     """)
-    while(True):
+    while True:
         delay = rec_factor
         alert_list = []
         response = None
@@ -98,4 +100,3 @@ def start_day_tracker(pin_code, date, rec_factor):
 
         finally:
             time.sleep(delay)
-

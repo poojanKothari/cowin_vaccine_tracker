@@ -1,11 +1,11 @@
-'''
+"""
 Created on May 4, 2021
 
 @author: poojan.kothari
-'''
+"""
 
-from util import common_utils, constants, day_tracker, week_tracker
 from flask import Flask
+from vaccine_session_check.util import common_utils, constants, day_tracker, week_tracker
 
 app = Flask(__name__)
 

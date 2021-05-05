@@ -1,21 +1,19 @@
-'''
+"""
 Created on May 4, 2021
 
 @author: poojan.kothari
-'''
+"""
+
 from threading import Thread
-from util import common_utils
-
-
+from vaccine_session_check.util import common_utils
 
 
 class WeekTracker(Thread):
-
     pin_code = None
-    date= None
+    date = None
     rec_factor = None
 
-    def __init__(self,pin_code, date, rec_factor):
+    def __init__(self, pin_code, date, rec_factor):
         Thread.__init__(self)
         self.pin_code = pin_code
         self.date = date
