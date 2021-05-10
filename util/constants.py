@@ -20,6 +20,7 @@ default_pin_code = "401101"
 default_rec_fac = 60
 default_date = (datetime.date.today() + datetime.timedelta(days=1)).strftime("%d-%m-%Y")
 default_min_age = 18
+default_window_type = 1
 
 base_url = "https://cdn-api.co-vin.in/api/"
 day_session_by_pin = "v2/appointment/sessions/public/findByPin"
